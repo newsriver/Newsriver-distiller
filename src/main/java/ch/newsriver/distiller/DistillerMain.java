@@ -8,8 +8,9 @@ import ch.newsriver.executable.Main;
 import ch.newsriver.executable.poolExecution.MainWithPoolExecutorOptions;
 import ch.newsriver.performance.MetricsLogger;
 import ch.newsriver.stream.Stream;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.time.Duration;
 

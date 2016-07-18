@@ -3,8 +3,9 @@ package ch.newsriver.distiller.signals.sentiment;
 import ch.newsriver.data.content.Article;
 import ch.newsriver.data.metadata.FinancialSentiment;
 import ch.newsriver.data.metadata.ReadTime;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
