@@ -1,14 +1,15 @@
-package ch.newsriver.distiller.signals;
+package ch.newsriver.distiller.signals.readTime;
 
 import ch.newsriver.data.content.Article;
 import ch.newsriver.data.content.Element;
 import ch.newsriver.data.content.ImageElement;
 import ch.newsriver.data.metadata.ReadTime;
+import ch.newsriver.distiller.signals.SignalEstimator;
 
 /**
  * Created by eliapalme on 07/06/16.
  */
-public class ReadTimeEstimator {
+public class ReadTimeEstimator implements SignalEstimator {
 
 
     /*

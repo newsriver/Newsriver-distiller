@@ -2,10 +2,9 @@ package ch.newsriver.distiller.signals.sentiment;
 
 import ch.newsriver.data.content.Article;
 import ch.newsriver.data.metadata.FinancialSentiment;
-import ch.newsriver.data.metadata.ReadTime;
+import ch.newsriver.distiller.signals.SignalEstimator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.util.HashSet;
 /**
  * Created by eliapalme on 07/06/16.
  */
-public class FinancialSentimentScore {
+public class FinancialSentimentScore implements SignalEstimator {
 
     private static final Logger logger = LogManager.getLogger(FinancialSentimentScore.class);
     private final int DECIMAL_NUMBERS = 2;
