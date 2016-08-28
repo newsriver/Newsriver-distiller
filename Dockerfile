@@ -1,5 +1,4 @@
-FROM alpine:3.3
-RUN apk --update add openjdk8-jre
+FROM openjdk:8-jre-alpine
 COPY newsriver-distiller-*.jar /home/newsriver-distiller.jar
 WORKDIR /home
 EXPOSE 31000-32000
