@@ -9,6 +9,7 @@ import org.apache.lucene.analysis.core.StopFilter;
 import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.util.AttributeFactory;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.PrintWriter;
@@ -34,6 +35,7 @@ public class GenerateTensorflowData {
     private Random random = new Random();
     private AttributeFactory factory = AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY;
 
+    @Ignore  //Not a real test only used as utility class to train the classifier
     @Test
     public void trainModel() throws URISyntaxException, Exception {
 
