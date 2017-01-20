@@ -2,14 +2,14 @@
   "id": "/newsriver/newsriver-distiller",
   "cmd": null,
   "cpus": 0.5,
-  "mem": 1024,
+  "mem": 768,
   "disk": 0,
   "instances": 1,
   "container": {
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "docker-registry.newsriver.io:5000/newsriver-distiller:latest",
+      "image": "docker-registry-v2.newsriver.io:5000/newsriver-distiller:latest",
       "network": "HOST",
       "privileged": false,
       "parameters": [],
