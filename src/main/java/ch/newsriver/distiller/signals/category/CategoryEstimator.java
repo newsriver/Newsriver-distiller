@@ -4,6 +4,7 @@ import ch.newsriver.data.content.Article;
 import ch.newsriver.data.metadata.Category;
 import ch.newsriver.data.url.BaseURL;
 import ch.newsriver.data.url.FeedURL;
+import ch.newsriver.data.url.LinkURL;
 import ch.newsriver.distiller.signals.SignalEstimator;
 
 import java.util.HashMap;
