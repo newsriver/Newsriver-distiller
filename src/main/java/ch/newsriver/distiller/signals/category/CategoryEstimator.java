@@ -38,6 +38,20 @@ public class CategoryEstimator implements SignalEstimator {
                     incOccurrence(countries, country);
                 }
             }
+            if (referal instanceof LinkURL) {
+                String category = ((LinkURL) referal).getCategory();
+                String region = ((LinkURL) referal).getRegion();
+                String country = ((LinkURL) referal).getCountry();
+                if (category != null) {
+                    incOccurrence(categories, category);
+                }
+                if (region != null) {
+                    incOccurrence(regions, region);
+                }
+                if (country != null) {
+                    incOccurrence(countries, country);
+                }
+            }
         }
 
 
