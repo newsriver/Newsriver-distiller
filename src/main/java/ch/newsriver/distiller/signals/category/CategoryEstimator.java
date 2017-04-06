@@ -24,11 +24,16 @@ public class CategoryEstimator implements SignalEstimator {
         HashMap<String, Integer> categories = new HashMap<>();
         HashMap<String, Integer> regions = new HashMap<>();
         HashMap<String, Integer> countries = new HashMap<>();
-        for (BaseURL referal : article.getReferrals()) {
-            if (referal instanceof FeedURL) {
-                String category = ((FeedURL) referal).getCategory();
-                String region = ((FeedURL) referal).getRegion();
-                String country = ((FeedURL) referal).getCountry();
+        HashMap<String, Integer> countryCodes = new HashMap<>();
+
+
+        for (BaseURL referral : article.getReferrals()) {
+            if (referral instanceof FeedURL) {
+                String category = ((FeedURL) referral).getCategory();
+                String region = ((FeedURL) referral).getRegion();
+                String country = ((FeedURL) referral).getCountry();
+                String countryCode = ((FeedURL) referral).getCountryCode();
+
                 if (category != null) {
                     incOccurrence(categories, category);
                 }
@@ -37,12 +42,17 @@ public class CategoryEstimator implements SignalEstimator {
                 }
                 if (country != null) {
                     incOccurrence(countries, country);
+                }
+                if (countryCode != null) {
+                    incOccurrence(countryCodes, countryCode);
                 }
             }
-            if (referal instanceof LinkURL) {
-                String category = ((LinkURL) referal).getCategory();
-                String region = ((LinkURL) referal).getRegion();
-                String country = ((LinkURL) referal).getCountry();
+            if (referral instanceof LinkURL) {
+                String category = ((LinkURL) referral).getCategory();
+                String region = ((LinkURL) referral).getRegion();
+                String country = ((LinkURL) referral).getCountry();
+                String countryCode = ((LinkURL) referral).getCountryCode();
+
                 if (category != null) {
                     incOccurrence(categories, category);
                 }
@@ -51,6 +61,12 @@ public class CategoryEstimator implements SignalEstimator {
                 }
                 if (country != null) {
                     incOccurrence(countries, country);
+                }
+                if (country != null) {
+                    incOccurrence(countries, country);
+                }
+                if (countryCode != null) {
+                    incOccurrence(countryCodes, countryCode);
                 }
             }
         }
@@ -61,6 +77,7 @@ public class CategoryEstimator implements SignalEstimator {
             category.setCategory(getMaxOccurrence(categories));
             category.setRegion(getMaxOccurrence(regions));
             category.setCountry(getMaxOccurrence(countries));
+            category.setCountryCode(getMaxOccurrence(countryCodes));
 
             article.addMetadata(category);
         }
