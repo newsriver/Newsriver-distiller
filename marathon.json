@@ -5,11 +5,14 @@
   "mem": 768,
   "disk": 0,
   "instances": 1,
+  "fetch": [{
+    "uri": "file:///etc/docker/docker-grc-auth.tar.gz"
+    }],
   "container": {
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "docker-registry-v2.newsriver.io:5000/newsriver-distiller:latest",
+      "image": "gcr.io/newsriver-io/newsriver-distiller:1",
       "network": "HOST",
       "privileged": false,
       "parameters": [],
