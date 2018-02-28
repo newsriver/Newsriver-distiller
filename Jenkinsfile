@@ -54,7 +54,7 @@ def deployDockerImage(projectName, dockerRegistry) {
     dir('docker') {
         sh "cp ../build/libs/$projectName-*.jar ."
         sh 'cp ../Dockerfile .'
-        sh 'cp ../classifier .'
+        sh 'cp -R ../classifier .'
         docker.withRegistry("https://$dockerRegistry/") {
             stage 'build docker image'
             def image = docker.build("$projectName:latest")
