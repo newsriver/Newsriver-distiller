@@ -17,9 +17,7 @@ public class CategoryEstimator implements SignalEstimator {
 
     //Process all existing referrals and compute the most frequently defined category, region and country.
 
-    @Override
-    public Article process(Article article) {
-
+    public static Category estimateCategory(Article article) {
 
         HashMap<String, Integer> categories = new HashMap<>();
         HashMap<String, Integer> regions = new HashMap<>();
@@ -72,21 +70,18 @@ public class CategoryEstimator implements SignalEstimator {
         }
 
 
-        if (!categories.isEmpty()) {
-            Category category = new Category();
-            category.setCategory(getMaxOccurrence(categories));
-            category.setRegion(getMaxOccurrence(regions));
-            category.setCountry(getMaxOccurrence(countries));
-            category.setCountryCode(getMaxOccurrence(countryCodes));
-
-            article.addMetadata(category);
-        }
+        Category category = new Category();
+        category.setCategory(getMaxOccurrence(categories));
+        category.setRegion(getMaxOccurrence(regions));
+        category.setCountry(getMaxOccurrence(countries));
+        category.setCountryCode(getMaxOccurrence(countryCodes));
 
 
-        return article;
+        return category;
+
     }
 
-    private String getMaxOccurrence(HashMap<String, Integer> map) {
+    private static String getMaxOccurrence(HashMap<String, Integer> map) {
         String maxKey = null;
         int max = 0;
         for (String key : map.keySet()) {
@@ -98,12 +93,25 @@ public class CategoryEstimator implements SignalEstimator {
         return maxKey;
     }
 
-    private void incOccurrence(HashMap<String, Integer> map, String key) {
+    private static void incOccurrence(HashMap<String, Integer> map, String key) {
         if (map.containsKey(key)) {
             map.put(key, map.get(key) + 1);
         } else {
             map.put(key, 1);
         }
+    }
+
+    @Override
+    public Article process(Article article) {
+
+
+        Category category = CategoryEstimator.estimateCategory(article);
+
+        if (category.getCategory() != null) {
+            article.addMetadata(category);
+        }
+
+        return article;
     }
 
 }
